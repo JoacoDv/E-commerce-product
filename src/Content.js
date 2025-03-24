@@ -18,7 +18,7 @@ const Content = () => {
         </div>
 
         <div className="counter">
-            <button onClick={() => setCount(count - 1)}>
+            <button onClick={() => setCount(Math.max(count - 1, 0))}>
                 <img src={minusIcon} alt="Restar" />
             </button>
             <span>{count}</span>

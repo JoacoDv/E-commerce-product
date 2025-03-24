@@ -32,8 +32,14 @@ const ImgContainer = () => {
             }}></img>
             <div className="img-popup-container">
                 <img src={selectedImg} alt="product1" className="img-product-popup"></img>
-                <button className="change-photo left"><img src={previous} alt="previous" className="previous" ></img></button>
-                <button className="change-photo right"><img src={next} alt="next" className="next"></img></button>
+                <button className="change-photo left" onClick={e => {
+                    const indexImage = Math.max(product.indexOf(selectedImg) - 1, 0);
+                    setSelectedImg(product[indexImage])
+                }}><img src={previous} alt="previous" className="previous" ></img></button>
+                <button className="change-photo right" onClick={e => {
+                    const indexImage = Math.min(product.indexOf(selectedImg) + 1, 3);
+                    setSelectedImg(product[indexImage])
+                }}><img src={next} alt="next" className="next"></img></button>
             </div>
             <Thumbnail setSelectedImg={setSelectedImg} />
         </section>
