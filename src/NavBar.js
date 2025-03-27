@@ -3,7 +3,7 @@ import cart from "./images/icon-cart.svg"
 import avatar from "./images/image-avatar.png"
 const navItems = ["Collections","Men", "Women" ,"About" ,"Contact"]
 
-const NavBar = () => {
+const NavBar = ({setCartClass, cartClass}) => {
     const nav = useRef(null)
     const anchorArray = useRef([])
     const anchordPosition = useRef(0)
@@ -29,7 +29,7 @@ const NavBar = () => {
                 nav.current.style.setProperty("--border", "0px")
             }} ref={a => anchorArray.current[index] = a} onFocus={(e) => moveMark(drawMark(index))}>{a}</a>
         })}
-        <img src={cart} className='cart' alt='cart'></img>
+        <img src={cart} className='cart' alt='cart' onClick={e => setCartClass(cartClass === "cart-container" ? "cart-container hidden" : "cart-container")}></img>
         <img src={avatar} className='avatar' alt='avatar'></img>
     </nav>)
 }
