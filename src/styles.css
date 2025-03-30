@@ -315,6 +315,16 @@ display: inline-flex;
 align-items: center;
 gap: 10px;
 cursor: pointer;
+transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.add-to-cart:hover {
+    filter: brightness(1.2);
+}
+
+.add-to-cart:active {
+    transform: scale(1.06);
+    filter: brightness(1.1);
 }
 
 .add-to-cart img {
@@ -325,7 +335,7 @@ cursor: pointer;
 
 .cart-container {
     width: 400px;
-    height: 280px;
+    height: 260px;
     position: absolute;
     left: 1350px;
     top: 110px;
@@ -348,9 +358,10 @@ cursor: pointer;
 
 .content-cart {
     height: 50%;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     color: hsl(219, 9%, 45%);
+    padding: 10px 20px;
 }
