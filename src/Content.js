@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import minusIcon from "./images/icon-minus.svg"
 import plusIcon from "./images/icon-plus.svg"
 import cart from "./images/icon-cart.svg"
+import imageProduct from "./images/image-product-1-thumbnail.jpg"
 
-const Content = () => {
+
+const Content = ({setCartList, cartList}) => {
     const [count, setCount] = useState(0);
     return (<section className="content">
         <h3>Sneaker Company</h3>
@@ -26,7 +28,11 @@ const Content = () => {
                 <img src={plusIcon} alt="Sumar" />
             </button>
         </div>
-        <button className="add-to-cart"><img src={cart}></img>Add to cart</button>
+        <button className="add-to-cart" onClick={e => {
+            if (count === 0) return;
+            setCartList([...cartList, {price: 125, title: "Fall Limited Edition Sneakers", unit: count, image: imageProduct}])
+            setCount(0)
+        }}><img src={cart}></img>Add to cart</button>
 
         </section>
     )

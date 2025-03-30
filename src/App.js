@@ -7,16 +7,17 @@ import imageProduct from "./images/image-product-1-thumbnail.jpg"
 
 
 const App = () => {
-        const [cartClass, setCartClass] = useState("cart-container hidden")
-        const [cartList, setCartList] = useState({price: 125, title: "Fall Limited Edition Sneakers", unit: 3, image: imageProduct})
+    const [positionCart, setPositionCart] = useState({left: 0, top: 0})
+    const [cartClass, setCartClass] = useState("cart-container hidden")
+    const [cartList, setCartList] = useState([])
     return ( <>
 
-        <NavBar setCartClass={setCartClass} cartClass={cartClass}/>
-        <Cart cartClass={cartClass} cartList={cartList} setCartList={setCartList} />
+        <NavBar setCartClass={setCartClass} cartClass={cartClass} setPositionCart={setPositionCart}/>
+        <Cart positionCart= {positionCart} cartClass={cartClass} cartList={cartList} setCartList={setCartList} />
 
         <main>
             <ImgContainer />
-            <Content setCartList={setCartList}/>
+            <Content setCartList={setCartList} cartList={cartList}/>
         </main>
         
                 
