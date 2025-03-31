@@ -24,7 +24,7 @@ const Cart = ({cartClass, cartList, setCartList, positionCart}) => {
             <h3>Cart</h3>
         </section>
         <section className="content-cart">
-            {Object.keys(cartList).length === 0 ? <p>Your cart is empty</p> : cartList.map((cartContent, index) => {
+            {Object.keys(cartList).length === 0 ? <p className="cart-empty">Your cart is empty</p> : cartList.map((cartContent, index) => {
                 return <ProductCart index={index} key={index} cartContent={cartContent} cartList={cartList} setCartList={setCartList}/>
             })}
         </section>
